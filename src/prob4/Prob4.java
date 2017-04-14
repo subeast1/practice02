@@ -1,24 +1,30 @@
 package prob4;
-
-import java.util.Scanner;
-
 public class Prob4 {
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		String s = scanner.nextLine();
+		char[] c1 = reverse( "Hello World" );
+		printCharArray( c1 );
 		
-		char[] c = reverse( s );
-		printCharArray( c );
-		
-		scanner.close();
+		char[] c2 = reverse( "Java Programming!" );
+		printCharArray( c2 );
 	}
 	
 	public static char[] reverse(String str) {
 		/* 코드를 완성합니다 */
+		char[] result =str.toCharArray(); 
+		
+		int count = result.length / 2;
+		for( int i = 0; i < count; i++ ) {
+			char temp = result[ i ];
+			result[ i ] = result[ result.length - 1 - i ];
+			result[ result.length - 1 - i ] = temp;
+		}
+			
+		return result;
 	}
 
 	public static void printCharArray(char[] array){
 		/* 코드를 완성합니다 */
+		System.out.println( array );
 	}
 }
